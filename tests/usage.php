@@ -1,4 +1,6 @@
 <?php
+require_once('../vendor/autoload.php');
+use IPInfo\IPInfo;
 
 // Enable full error reporting
 error_reporting(-1);
@@ -10,7 +12,7 @@ require_once 'ipinfo.inc.php';
 require_once 'key.key.php';
 
 // Create a new instance
-$ipInfo = new ipInfo (APIKEY);
+$ipInfo = new IPInfo(APIKEY);
 
 $userIP = $ipInfo->getIPAddress();
 

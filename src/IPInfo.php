@@ -9,7 +9,10 @@
   * Uses IP Info DB <http://ipinfodb.com/>
   *
   */
-class ipInfo {
+
+namespace IPInfo;
+
+class IPInfo {
   // Holds the API Key
   private $apiKey = null;
 
@@ -91,9 +94,15 @@ class ipInfo {
       error_log('Invalid IP Address '. $ip);
       return false;
     }
+    $qs = [
+        'key' => $this->apiKey,
+        'ip' => $ip,
+        'format' => $this->apiFormat
+    ];
+    $qs = http_build_query($qs);
 
     // Build the URL
-    $url = $this->apiURL . $this->apiVersion .'/'. $endpoint .'/?key='. $this->apiKey .'&ip='. $ip .'&format='. $this->apiFormat;
+    $url = $this->apiURL . $this->apiVersion .'/'. $endpoint .'/?'.$qs;
 
     // Initialise CURL
     $handle = curl_init();

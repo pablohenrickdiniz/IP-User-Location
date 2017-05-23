@@ -12,10 +12,5 @@
       "email":"phydokz@gmail.com"
     }
   ],
-  "require": {},
-  "autoload": {
-    "psr-4": {
-      "IPInfo\\": "src"
-    }
-  }
+  "require": {}
 }
